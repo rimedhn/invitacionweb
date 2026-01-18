@@ -1,5 +1,5 @@
 // Configuración
-const SCRIPT_URL = 'TU_URL_DE_WEB_APP_AQUI'; // Reemplazar con la URL de tu Google Apps Script
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-A7URvkN1odiHv09EENhQmYyO45EG-CeteHUsIyvkDoidkD6WlY_Q2odP6yhVFssGLQ/exec'; // Reemplazar con la URL de tu Google Apps Script
 
 let allGuests = [];
 let currentFilter = 'all';
