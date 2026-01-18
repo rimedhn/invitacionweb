@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Boda Ariel & Mercy</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💍%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>📊 Panel de Gestión - Boda Ariel & Mercy</h1>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Volver a Invitación</button>
+        </div>
+
+        <!-- Resumen de Confirmaciones -->
+        <div class="summary-section">
+            <h2>Resumen de Confirmaciones</h2>
+            <div class="summary-cards">
+                <div class="summary-card confirmed">
+                    <div class="summary-icon">✅</div>
+                    <div class="summary-info">
+                        <h3 id="confirmedCount">0</h3>
+                        <p>Confirmados</p>
+                    </div>
+                </div>
+                <div class="summary-card pending">
+                    <div class="summary-icon">⏳</div>
+                    <div class="summary-info">
+                        <h3 id="pendingCount">0</h3>
+                        <p>Pendientes</p>
+                    </div>
+                </div>
+                <div class="summary-card declined">
+                    <div class="summary-icon">❌</div>
+                    <div class="summary-info">
+                        <h3 id="declinedCount">0</h3>
+                        <p>No Asistirán</p>
+                    </div>
+                </div>
+                <div class="summary-card total">
+                    <div class="summary-icon">👥</div>
+                    <div class="summary-info">
+                        <h3 id="totalSeats">0</h3>
+                        <p>Total de Asientos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters-section">
+            <h2>Filtrar Invitados</h2>
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterGuests('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGuests('Confirmado')">Confirmados</button>
+                <button class="filter-btn" onclick="filterGuests('Pendiente')">Pendientes</button>
+                <button class="filter-btn" onclick="filterGuests('No asistirá')">No Asistirán</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar por nombre o teléfono..." onkeyup="searchGuests()">
+            </div>
+        </div>
+
+        <!-- Lista de Invitados -->
+        <div class="guests-section">
+            <div class="section-header">
+                <h2>Lista de Invitados</h2>
+                <button class="btn btn-primary" onclick="refreshData()">🔄 Actualizar</button>
+            </div>
+            <div id="guestsTable">
+                <table class="guests-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Asientos</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guestsTableBody">
+                        <tr>
+                            <td colspan="4" class="loading">Cargando datos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
