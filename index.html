@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel & Mercy - Nuestra Boda</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💍%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Botón discreto para administrador -->
+        <button class="admin-btn" onclick="showAdminLogin()">⚙️</button>
+
+        <!-- Tarjeta Principal de Invitación -->
+        <div class="invitation-card">
+            <div class="header-decoration">
+                <div class="flower-left">🌿</div>
+                <div class="rings">💍</div>
+                <div class="flower-right">🌿</div>
+            </div>
+
+            <h1 class="names">Ariel & Mercy</h1>
+            <p class="subtitle">¡Nos Casamos!</p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">0</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">0</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">0</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">0</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+
+            <!-- Detalles del Evento -->
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <div>
+                        <strong>Fecha</strong>
+                        <p>28 de Febrero, 2026</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">⏰</span>
+                    <div>
+                        <strong>Hora</strong>
+                        <p>2:00 PM</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <div>
+                        <strong>Lugar</strong>
+                        <p>Hacienda El Ovejo, Siguatepeque</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Importante -->
+            <div class="info-section">
+                <div class="info-box">
+                    <h3>👶 Política de Niños</h3>
+                    <p>Sabemos que los niños son importantes, pero creemos que mamá y papá también necesitan un día libre.  <strong>Por favor NO NIÑOS.</strong></p>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎁 Obsequios</h3>
+                    <p>Lo más importante para nosotros es compartir este día con ustedes.  Cualquier detalle u obsequio agradecemos sea en <strong>efectivo</strong>.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>👔 Código de Vestimenta</h3>
+                    <p><strong>Casual Elegante. </strong> Queremos que te sientas cómodo, pero sin perder el toque especial que merece la ocasión.</p>
+                    <p class="color-palette">Colores: <span class="color-dot olive"></span> Verde Olivo, <span class="color-dot beige"></span> Beige, <span class="color-dot white"></span> Blanco</p>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="showRSVP()">
+                    ✉️ Confirmar Asistencia
+                </button>
+                <a href="https://www.google.com/maps/place/G5WC+J9H,+Aldea+San+Isidro,+Siguatepeque" 
+                   target="_blank" class="btn btn-secondary">
+                    📍 Ver Ubicación
+                </a>
+            </div>
+
+            <!-- Contacto de los Novios -->
+            <div class="contact-section">
+                <h3>Contáctanos por WhatsApp</h3>
+                <div class="whatsapp-buttons">
+                    <a href="https://wa.me/50498506810" target="_blank" class="whatsapp-btn">
+                        <span class="wa-icon">💬</span> Ariel:  +504 9850-6810
+                    </a>
+                    <a href="https://wa.me/50495160983" target="_blank" class="whatsapp-btn">
+                        <span class="wa-icon">💬</span> Mercy: +504 9516-0983
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-decoration">
+                <div class="hearts">💚 🤍 💚</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Confirmación de Asistencia -->
+    <div id="rsvpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRSVP()">&times;</span>
+            <h2>Confirmar Asistencia</h2>
+            <p class="rsvp-note">Para una mejor organización, agradeceremos confirmar su asistencia antes del <strong>14 de febrero 2026</strong>.</p>
+            
+            <div id="rsvpStep1">
+                <div class="form-group">
+                    <label for="phoneNumber">Número de Teléfono:</label>
+                    <input type="tel" id="phoneNumber" placeholder="+504 0000-0000" required>
+                </div>
+                <button class="btn btn-primary" onclick="verifyGuest()">Verificar</button>
+            </div>
+
+            <div id="rsvpStep2" style="display: none;">
+                <div class="guest-info">
+                    <h3>Bienvenido/a, <span id="guestName"></span></h3>
+                    <p>Asientos reservados: <strong id="guestSeats"></strong></p>
+                </div>
+                <div class="form-group">
+                    <label>¿Confirma su asistencia?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="Confirmado" checked>
+                            <span>✅ Sí, asistiré</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="No asistirá">
+                            <span>❌ No podré asistir</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="submitRSVP()">Enviar Confirmación</button>
+            </div>
+
+            <div id="rsvpMessage" style="display: none;">
+                <div class="success-message">
+                    <span class="success-icon">✓</span>
+                    <p id="messageText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login para Administrador -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdminLogin()">&times;</span>
+            <h2>Acceso de Coordinador</h2>
+            <div class="form-group">
+                <label for="adminPin">PIN de Acceso:</label>
+                <input type="password" id="adminPin" placeholder="Ingrese el PIN" maxlength="6">
+            </div>
+            <button class="btn btn-primary" onclick="verifyAdmin()">Acceder</button>
+            <p id="adminError" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
