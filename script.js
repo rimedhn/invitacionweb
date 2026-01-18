@@ -1,6 +1,6 @@
 // Configuración de Google Apps Script Web App
-const SCRIPT_URL = 'TU_URL_DE_WEB_APP_AQUI'; // Reemplazar con la URL de tu Google Apps Script
-const ADMIN_PIN = '123456'; // PIN de acceso para el administrador
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-A7URvkN1odiHv09EENhQmYyO45EG-CeteHUsIyvkDoidkD6WlY_Q2odP6yhVFssGLQ/exec'; // Reemplazar con la URL de tu Google Apps Script
+const ADMIN_PIN = '202601'; // PIN de acceso para el administrador
 
 // Countdown Timer
 function updateCountdown() {
